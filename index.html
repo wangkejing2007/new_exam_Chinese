@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海外聯合招生考試（臺校）國文科歷屆試題清單</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use a Chinese-friendly font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for better look */
+        .table-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .table-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* slate-300 */
+            border-radius: 4px;
+        }
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* slate-400 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans p-4 sm:p-8 min-h-screen">
+
+    <!-- Main Content Container -->
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-10 p-6 bg-white rounded-xl shadow-lg">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-800 tracking-tight mb-2">
+                海外聯合招生考試（臺校）
+            </h1>
+            <p class="text-xl text-blue-600 font-semibold border-b pb-4">
+                國文科歷屆試題清單
+            </p>
+        </header>
+
+        <!-- Filter Controls -->
+        <div id="filter-controls" class="mb-6 flex flex-wrap justify-center sm:justify-start gap-3 p-4 bg-white rounded-xl shadow-md">
+            <button onclick="filterTable('all', this)" data-filter="all" class="filter-btn bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-lg hover:bg-blue-700 transition duration-150 ease-in-out">
+                全部
+            </button>
+            <button onclick="filterTable('paper', this)" data-filter="paper" class="filter-btn bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition duration-150 ease-in-out">
+                試題卷 (Exam Papers)
+            </button>
+            <button onclick="filterTable('answer', this)" data-filter="answer" class="filter-btn bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition duration-150 ease-in-out">
+                答案卷 (Answer Keys)
+            </button>
+        </div>
+        
+        <!-- Table Container (Horizontal Scroll on Small Screens) -->
+        <div class="table-container overflow-x-auto shadow-2xl rounded-xl">
+            <table class="min-w-full divide-y divide-blue-200 bg-white">
+                <thead class="bg-blue-600 text-white sticky top-0">
+                    <tr>
+                        <th scope="col" class="px-4 py-3 sm:px-6 text-left text-sm font-bold uppercase tracking-wider rounded-tl-xl w-1/12">
+                            學年度
+                        </th>
+                        <th scope="col" class="px-4 py-3 sm:px-6 text-left text-sm font-bold uppercase tracking-wider w-2/12">
+                            文件類型
+                        </th>
+                        <th scope="col" class="px-4 py-3 sm:px-6 text-left text-sm font-bold uppercase tracking-wider rounded-tr-xl w-9/12">
+                            內容概述
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="papers-table-body" class="divide-y divide-gray-200">
+                    
+                    <!-- 109 試題卷 -->
+                    <tr data-type="paper" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900">109</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">試題卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700">國文科目選擇題與閱讀測驗。</td>
+                    </tr>
+
+                    <!-- 110 試題卷 -->
+                    <tr data-type="paper" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900">110</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">試題卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700">國文科目選擇題，涵蓋詩歌、古文、科普文章等。</td>
+                    </tr>
+                    <!-- 110 答案卷 -->
+                    <tr data-type="answer" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900">110</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">答案卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700">國文科目選擇題答案。</td>
+                    </tr>
+                    
+                    <!-- 111 試題卷 -->
+                    <tr data-type="paper" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900">111</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">試題卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700">國文科目選擇題，涵蓋字音字形、感官記憶、寓言、歷史典故等。</td>
+                    </tr>
+                    <!-- 111 答案卷 -->
+                    <tr data-type="answer" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900">111</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">答案卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700">國文科目選擇題答案。</td>
+                    </tr>
+                    
+                    <!-- 112 試題卷 -->
+                    <tr data-type="paper" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900">112</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">試題卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700">國文科目選擇題，涵蓋字音字形、詞義、成語、古典詩詞、先秦文章、小說片段等。</td>
+                    </tr>
+
+                    <!-- 113 試題卷 -->
+                    <tr data-type="paper" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900">113</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">試題卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700">國文科目選擇題，涵蓋字音字形、成語、詞義、修辭手法、古典詩文、文言笑話等。</td>
+                    </tr>
+                    <!-- 113 答案卷 -->
+                    <tr data-type="answer" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900">113</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">答案卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700">國文科目選擇題答案。</td>
+                    </tr>
+                    
+                    <!-- 114 答案卷 -->
+                    <tr data-type="answer" class="hover:bg-blue-50 transition duration-150 ease-in-out odd:bg-white even:bg-blue-50">
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm font-medium text-gray-900 rounded-bl-xl">114</td>
+                        <td class="px-4 py-3 sm:px-6 whitespace-nowrap text-sm text-gray-700">答案卷</td>
+                        <td class="px-4 py-3 sm:px-6 text-sm text-gray-700 rounded-br-xl">國文科目選擇題答案。</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- End of Table Container -->
+
+        <footer class="mt-10 text-center text-gray-500 text-sm">
+            <p>資料來源：您提供的 Google Drive 檔案內容</p>
+        </footer>
+    </div>
+
+    <script>
+        /**
+         * 根據文件類型篩選表格行。
+         * @param {string} filterType - 篩選類型 ('all', 'paper', 'answer')
+         * @param {HTMLElement} clickedButton - 被點擊的按鈕元素
+         */
+        function filterTable(filterType, clickedButton) {
+            const tbody = document.getElementById('papers-table-body');
+            const rows = tbody.querySelectorAll('tr');
+            
+            // 1. 更新按鈕樣式
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-lg');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+
+            clickedButton.classList.remove('bg-gray-200', 'text-gray-700');
+            clickedButton.classList.add('bg-blue-600', 'text-white', 'shadow-lg');
+
+
+            // 2. 執行篩選邏輯
+            rows.forEach((row, index) => {
+                const rowType = row.getAttribute('data-type');
+                
+                if (filterType === 'all' || rowType === filterType) {
+                    row.style.display = ''; // 顯示行
+                } else {
+                    row.style.display = 'none'; // 隱藏行
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
